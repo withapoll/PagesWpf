@@ -10,8 +10,7 @@ namespace PagesWpf.GlobalVariables
 {
     public static class Vars
     {
-        public static ObservableCollection<AllMaterials> Materials { get; set; } =
-            new ObservableCollection<AllMaterials>
+        public static ObservableCollection<AllMaterials> Materials { get; set; } = new ObservableCollection<AllMaterials>
             {
                 new AllMaterials { Id = 1, Name = "Офисная бумага", Price = 200 },
                 new AllMaterials { Id = 2, Name = "Глянцевая бумага", Price = 350 },

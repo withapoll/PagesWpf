@@ -39,5 +39,42 @@ namespace PagesWpf.Pages
             if (selected != null)
                 NavigationService?.Navigate(new EditPage(selected));
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = (AllMaterials)MaterialsGrid.SelectedItem;
+            if (selected != null)
+            {
+                Vars.Materials.Remove(selected);
+                MaterialsGrid.Items.Refresh();
+            }
+        }
+
+        /*
+         можно ещё вот так с попапом
+        private void Delete_Click(object sender, RoutedEventArgs e)
+{
+    var selected = (AllMaterials)MaterialsGrid.SelectedItem;
+    if (selected != null)
+    {
+        var result = MessageBox.Show(
+            $"Вы уверены, что хотите удалить \"{selected.Name}\"?",
+            "Удаление",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (result == MessageBoxResult.Yes)
+        {
+            Vars.Materials.Remove(selected);
+            MaterialsGrid.Items.Refresh(); // Обновление таблицы
+        }
+    }
+    else
+    {
+        MessageBox.Show("Выберите элемент для удаления", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+}
+
+         */
     }
 }
